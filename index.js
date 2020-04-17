@@ -118,6 +118,9 @@ app.get("/getip",(req,res)=>{
   console.log("IP Address of host "+req.connection.remoteAddress);
   res.json({"ip":req.connection.remoteAddress});
 });
+app.get("/testing",(req,res)=>{
+  res.send("testing success");
+});
 app.get('*', middleware.ensureLoggedIn(), (req, res) => {
     res.render('index');
 });
@@ -125,6 +128,6 @@ app.get('*', middleware.ensureLoggedIn(), (req, res) => {
 app.listen(port, (req,res) => {
   console.log(`App listening on ${port}!`);
 });
-node_media_server.run();
-thumbnail_generator.start();
+// node_media_server.run();
+// thumbnail_generator.start();
 
