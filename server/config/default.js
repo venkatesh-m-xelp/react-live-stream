@@ -1,7 +1,8 @@
+// const http_port = process.env.PORT || 8888;
 const config = {
     server: {
         secret: 'kjVkuti2xAyF3JGCzSZTk0YWM5JhI9mgQW4rytXc',
-        port : 3333
+        // port : 3333
     },
     rtmp_server: {
         rtmp: {
@@ -12,12 +13,20 @@ const config = {
             ping_timeout: 30
         },
         http: {
-            port: 8888,
+            // port: http_port,
             mediaroot: './server/media',
             allow_origin: '*'
         },
+        https: {
+            port: 8443,
+            mediaroot: './server/media',
+            allow_origin: '*',
+            key:'./privatekey.pem',
+            cert:'./certificate.pem',
+          },
         trans: {
-            ffmpeg: 'vendor/ffmpeg/bin/ffmpeg',
+            // ffmpeg: 'vendor/ffmpeg/bin/ffmpeg',
+            ffmpeg: '/usr/bin/ffmpeg',
             tasks: [
                 {
                     app: 'live',
