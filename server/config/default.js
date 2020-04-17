@@ -1,4 +1,4 @@
-// const http_port = process.env.PORT || 8888;
+const http_port = process.env.PORT || 8888;
 const config = {
     server: {
         secret: 'kjVkuti2xAyF3JGCzSZTk0YWM5JhI9mgQW4rytXc',
@@ -13,7 +13,7 @@ const config = {
             ping_timeout: 30
         },
         http: {
-            // port: http_port,
+            port: http_port,
             mediaroot: './server/media',
             allow_origin: '*'
         },
@@ -25,8 +25,8 @@ const config = {
             cert:'./certificate.pem',
           },
         trans: {
-            // ffmpeg: 'vendor/ffmpeg/bin/ffmpeg',
-            ffmpeg: '/usr/bin/ffmpeg',
+            ffmpeg: 'vendor/ffmpeg/bin/ffmpeg',
+            // ffmpeg: '/usr/bin/ffmpeg',
             tasks: [
                 {
                     app: 'live',
