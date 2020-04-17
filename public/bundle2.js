@@ -630,30 +630,29 @@ var VideoPlayer = function (_React$Component) {
         value: function componentDidMount() {
             var _this2 = this;
 
-            this.setState({
-                stream: true,
-                videoJsOptions: {
-                    autoplay: false,
-                    controls: true,
-                    liveui: true,
-                    sources: [{
-                        src: '/stream',
-                        type: 'video/mp4'
-                    }],
-                    fluid: true
-                }
-            }, function () {
-                _this2.player = (0, _video2.default)(_this2.videoNode, _this2.state.videoJsOptions, function onPlayerReady() {
-                    console.log('onPlayerReady', this);
+            _axios2.default.get('/stream', {
+                // params: {
+                //     username: this.props.match.params.username
+                // }
+            }).then(function (res) {
+                _this2.setState({
+                    stream: true,
+                    videoJsOptions: {
+                        autoplay: false,
+                        controls: true,
+                        liveui: true,
+                        sources: [{
+                            src: '/stream',
+                            type: 'video/mp4'
+                        }],
+                        fluid: true
+                    }
+                }, function () {
+                    _this2.player = (0, _video2.default)(_this2.videoNode, _this2.state.videoJsOptions, function onPlayerReady() {
+                        console.log('onPlayerReady', this);
+                    });
                 });
             });
-            // axios.get('/stream', {
-            //     // params: {
-            //     //     username: this.props.match.params.username
-            //     // }
-            // }).then(res => {
-
-            // })
         }
     }, {
         key: 'componentWillUnmount',
