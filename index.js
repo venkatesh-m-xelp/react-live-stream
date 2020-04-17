@@ -28,7 +28,7 @@ const express = require('express'),
     passport = require('./server/auth/passport'),
     mongoose = require('mongoose'),
     middleware = require('connect-ensure-login'),
-    FileStore = require('session-file-store')(Session),
+    // FileStore = require('session-file-store')(Session),
     config = require('./server/config/default'),
     flash = require('connect-flash'),
     port = config.server.port,
@@ -38,7 +38,7 @@ const express = require('express'),
 
 // mongoose.connect('mongodb://VenkateshM:venkatesh123@ds129374.mlab.com:29374/customersapp' , { useNewUrlParser: true });
 let uri = 'mongodb://venkateshm:venkatesh123@ds129374.mlab.com:29374/customersapp';
-mongoose.connect(uri,{useNewUrlParser: true},(err)=>{
+mongoose.connect(uri,{useNewUrlParser: true,useUnifiedTopology: true},(err)=>{
   if(err){
     console.log(`Error occured ${err}`);
   } else{
@@ -129,8 +129,9 @@ app.get('*', (req, res) => {
   res.render('index');
 });
 
-app.listen(port, (req,res) => {
-  console.log(`App listening on ${port}!`);
+const ports = process.env.PORT || 3333;
+app.listen(ports, (req,res) => {
+  console.log(`App listening on ${ports}!`);
 });
 // node_media_server.run();
 // thumbnail_generator.start();
