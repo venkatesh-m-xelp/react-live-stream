@@ -84,15 +84,15 @@ app.use(require('cookie-parser')());
 app.use(bodyParse.urlencoded({extended: true}));
 app.use(bodyParse.json({extended: true}));
 
-// app.use(Session({
-//     store: new FileStore({
-//         path : './server/sessions'
-//     }),
-//     secret: config.server.secret,
-//     maxAge : Date().now + (60 * 1000 * 30),
-//     resave : true,
-//     saveUninitialized : false,
-// }));
+app.use(Session({
+    store: new FileStore({
+        path : './server/sessions'
+    }),
+    secret: config.server.secret,
+    maxAge : Date().now + (60 * 1000 * 30),
+    resave : true,
+    saveUninitialized : false,
+}));
 
 // app.use(passport.initialize());
 // app.use(passport.session());
