@@ -1,1 +1,4 @@
 node_modules/
+server/media/*
+server/sessions/*
+server/thumbnails/*
