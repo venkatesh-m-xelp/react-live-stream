@@ -121,8 +121,12 @@ app.get("/getip",(req,res)=>{
 app.get("/testing",(req,res)=>{
   res.send("testing success");
 });
-app.get('*', middleware.ensureLoggedIn(), (req, res) => {
-    res.render('index');
+// app.get('*', middleware.ensureLoggedIn(), (req, res) => {
+//     res.render('index');
+// });
+
+app.get('*', (req, res) => {
+  res.render('index');
 });
 
 app.listen(port, (req,res) => {
