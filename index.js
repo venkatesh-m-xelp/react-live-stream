@@ -32,9 +32,9 @@ const express = require('express'),
     config = require('./server/config/default'),
     flash = require('connect-flash'),
     port = config.server.port,
-    app = express(),
-    node_media_server = require('./server/media_server'),
-    thumbnail_generator = require('./server/cron/thumbnails');
+    app = express();
+    // node_media_server = require('./server/media_server'),
+    // thumbnail_generator = require('./server/cron/thumbnails');
 
 // mongoose.connect('mongodb://VenkateshM:venkatesh123@ds129374.mlab.com:29374/customersapp' , { useNewUrlParser: true });
 let uri = 'mongodb://venkateshm:venkatesh123@ds129374.mlab.com:29374/customersapp';
