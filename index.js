@@ -122,9 +122,9 @@ app.get('*', middleware.ensureLoggedIn(), (req, res) => {
     res.render('index');
 });
 
-// app.listen(port, (req,res) => {
-//   console.log(`App listening on ${port}!`);
-// });
+app.listen(port, (req,res) => {
+  console.log(`App listening on ${port}!`);
+});
 node_media_server.run();
 thumbnail_generator.start();
 
