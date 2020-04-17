@@ -94,8 +94,8 @@ app.use(Session({
     saveUninitialized : false,
 }));
 
-// app.use(passport.initialize());
-// app.use(passport.session());
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Register app routes
 // app.use('/login', require('./server/routes/login'));
