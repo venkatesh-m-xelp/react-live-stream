@@ -5,8 +5,12 @@ const express = require('express');
 const app = express();
 const fs = require('fs');
 const cors = require('cors');
+const paths = require('path');
+app.set('view engine', 'ejs');
+app.set('views', paths.join(__dirname, './public'));
 app.use(cors({origin:"*"}));
-app.use("/static",express.static(__dirname + '/public'));
+app.use(express.static('./public'));
+// app.use("/static",express.static(__dirname + '/public'));
 // app.use(express.static("/public"));
 
 app.get("/stream",(req,res)=>{
@@ -46,6 +50,10 @@ const port= process.env.PORT || 4000;
 
 app.listen(port,(req,res)=>{
   console.log("server is running of port "+port);
+});
+
+app.get('*', (req, res) => {
+  res.render('index');
 });
 // const apps = require('./server/app');
 // const app = apps.app;
