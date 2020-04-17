@@ -49,32 +49,32 @@ mongoose.connect(uri,{useNewUrlParser: true},(err)=>{
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, './server/views'));
 app.use(express.static('./public'));
-app.use('/thumbnails', express.static('./server/thumbnails'));
+// app.use('/thumbnails', express.static('./server/thumbnails'));
 app.use(flash());
 
 app.use(require('cookie-parser')());
 app.use(bodyParse.urlencoded({extended: true}));
 app.use(bodyParse.json({extended: true}));
 
-app.use(Session({
-    store: new FileStore({
-        path : './server/sessions'
-    }),
-    secret: config.server.secret,
-    maxAge : Date().now + (60 * 1000 * 30),
-    resave : true,
-    saveUninitialized : false,
-}));
+// app.use(Session({
+//     store: new FileStore({
+//         path : './server/sessions'
+//     }),
+//     secret: config.server.secret,
+//     maxAge : Date().now + (60 * 1000 * 30),
+//     resave : true,
+//     saveUninitialized : false,
+// }));
 
-app.use(passport.initialize());
-app.use(passport.session());
+// app.use(passport.initialize());
+// app.use(passport.session());
 
 // Register app routes
-app.use('/login', require('./server/routes/login'));
-app.use('/register', require('./server/routes/register'));
-app.use('/settings', require('./server/routes/settings'));
-app.use('/streams', require('./server/routes/streams'));
-app.use('/user', require('./server/routes/user'));
+// app.use('/login', require('./server/routes/login'));
+// app.use('/register', require('./server/routes/register'));
+// app.use('/settings', require('./server/routes/settings'));
+// app.use('/streams', require('./server/routes/streams'));
+// app.use('/user', require('./server/routes/user'));
 
 app.get('/logout', (req, res) => {
     req.logout();
