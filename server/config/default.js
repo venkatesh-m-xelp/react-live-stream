@@ -2,7 +2,7 @@ const http_port = process.env.PORT || 8888;
 const config = {
     server: {
         secret: 'kjVkuti2xAyF3JGCzSZTk0YWM5JhI9mgQW4rytXc',
-        // port : 3333
+        port : 3333
     },
     rtmp_server: {
         rtmp: {

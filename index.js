@@ -96,7 +96,7 @@ app.get("/stream",(req,res)=>{
     const start = parseInt(parts[0],10);
     const end = parts[1]?parseInt(parts[1],10):fileSize-1;
     const chunkSize = (end-start)+1;
-    const file = fs.createReadStream(path,{start,end});
+    const file = fs.createReadStream(videoUrl,{start,end});
     const head = {
       'Content-Range':`bytes ${start}-${end}/${fileSize}`,
       'Accept-Ranges':'bytes',
@@ -111,7 +111,7 @@ app.get("/stream",(req,res)=>{
       'Content-Type':"video/mp4"
     }
     res.writeHead(200,head);
-    fs.createReadStream(path).pipe(res);
+    fs.createReadStream(videoUrl).pipe(res);
   }
 });
 app.get("/getip",(req,res)=>{
