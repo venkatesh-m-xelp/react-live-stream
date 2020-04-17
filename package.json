@@ -3,6 +3,7 @@
   "description": "Cloud Functions for Firebase",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "webpack": "./node_modules/.bin/webpack",
     "babel": "node_modules/.bin/babel client -d functions/client && node_modules/.bin/babel index.js -d functions"
   },
