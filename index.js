@@ -4,7 +4,7 @@
 
 // const app = express();
 const fs = require('fs');
-// const cors = require('cors');
+const cors = require('cors');
 // const paths = require('path');
 // app.set('view engine', 'ejs');
 // app.set('views', paths.join(__dirname, './public'));
@@ -35,7 +35,7 @@ const express = require('express'),
     app = express();
     // node_media_server = require('./server/media_server'),
     // thumbnail_generator = require('./server/cron/thumbnails');
-
+const multer = require("multer");
 // mongoose.connect('mongodb://VenkateshM:venkatesh123@ds129374.mlab.com:29374/customersapp' , { useNewUrlParser: true });
 let uri = 'mongodb://venkateshm:venkatesh123@ds129374.mlab.com:29374/customersapp';
 mongoose.connect(uri,{useNewUrlParser: true,useUnifiedTopology: true},(err)=>{
@@ -48,7 +48,35 @@ mongoose.connect(uri,{useNewUrlParser: true,useUnifiedTopology: true},(err)=>{
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, './server/views'));
+app.use(cors({origin:"*"}));
 app.use(express.static('./public'));
+const storage = multer.diskStorage({
+  destination: (req,file,callBack)=>{
+    callBack(null,'public');
+  },
+  filename: (req,file,callBack)=>{
+    callBack(null,file.originalname);
+  }
+});
+
+var upload = multer({storage: storage});
+app.post("/files",upload.single('upload'),(req,res,next)=>{
+  const file = req.file;
+  console.log(file.filename);
+  if(!file)
+  {
+    let result = {"error": {
+      "message": "The image upload failed because the image was too big (max 1.5MB)."
+      }
+    }
+    res.send(result);
+    // const error = new Error('Please upload a file');
+    // error.httpStatusCode = 400;
+    // return next(error);
+  }
+  let result = {"url": "/"+file.path}
+  res.send(result);
+});
 // app.use('/thumbnails', express.static('./server/thumbnails'));
 app.use(flash());
 
