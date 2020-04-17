@@ -101,8 +101,8 @@ app.use(passport.session());
 app.use('/login', require('./server/routes/login'));
 app.use('/register', require('./server/routes/register'));
 app.use('/settings', require('./server/routes/settings'));
-// app.use('/streams', require('./server/routes/streams'));
-// app.use('/user', require('./server/routes/user'));
+app.use('/streams', require('./server/routes/streams'));
+app.use('/user', require('./server/routes/user'));
 
 app.get('/logout', (req, res) => {
     req.logout();
