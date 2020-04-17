@@ -4,8 +4,8 @@
 
 // const app = express();
 const fs = require('fs');
-const cors = require('cors');
-const paths = require('path');
+// const cors = require('cors');
+// const paths = require('path');
 // app.set('view engine', 'ejs');
 // app.set('views', paths.join(__dirname, './public'));
 // app.use("/static",express.static(__dirname + '/public'));
@@ -84,11 +84,11 @@ app.get('/logout', (req, res) => {
 
 app.get("/stream",(req,res)=>{
   console.log("Streaming...");
-  const path = './public/sample.mp4';
+  const videoUrl = './public/sample.mp4';
   // const request = https.get('https://firebasestorage.googleapis.com/v0/b/react-app-live.appspot.com/o/sample.mp4?alt=media&token=7830155e-34d0-4151-9b47-997dc44f1774',function(response){
   //   response.pipe(response);
   // });
-  const stat = fs.statSync(path);
+  const stat = fs.statSync(videoUrl);
   const fileSize = stat.size;
   const range = req.headers.range;
   if(range){
