@@ -32,9 +32,9 @@ const express = require('express'),
     config = require('./server/config/default'),
     flash = require('connect-flash'),
     port = config.server.port,
-    app = express();
-    // node_media_server = require('./server/media_server'),
-    // thumbnail_generator = require('./server/cron/thumbnails');
+    app = express(),
+    node_media_server = require('./server/media_server'),
+    thumbnail_generator = require('./server/cron/thumbnails');
 const multer = require("multer");
 // mongoose.connect('mongodb://VenkateshM:venkatesh123@ds129374.mlab.com:29374/customersapp' , { useNewUrlParser: true });
 let uri = 'mongodb://venkateshm:venkatesh123@ds129374.mlab.com:29374/customersapp';
@@ -77,7 +77,7 @@ app.post("/files",upload.single('upload'),(req,res,next)=>{
   let result = {"url": "/"+file.path}
   res.send(result);
 });
-// app.use('/thumbnails', express.static('./server/thumbnails'));
+app.use('/thumbnails', express.static('./server/thumbnails'));
 app.use(flash());
 
 app.use(require('cookie-parser')());
@@ -157,10 +157,10 @@ app.get('*', middleware.ensureLoggedIn(), (req, res) => {
 //   res.render('index');
 // });
 
-const ports = process.env.PORT || 3333;
+// const ports = process.env.PORT || 3333;
 app.listen(ports, (req,res) => {
   console.log(`App listening on ${ports}!`);
 });
-// node_media_server.run();
-// thumbnail_generator.start();
+node_media_server.run();
+thumbnail_generator.start();
 
