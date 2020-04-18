@@ -20,7 +20,7 @@ npm install
 
 node server --port=9001
 ```
-Now open `http://localhost:9001/`.
+Now open 'http://localhost:9001/'.
 
 ## Heroku Configuration
 
