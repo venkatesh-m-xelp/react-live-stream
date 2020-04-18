@@ -20,7 +20,7 @@ npm install
 
 node server --port=9001
 ```
-Now open 'http://localhost:9001/'.
+Now open http://localhost:9001/.
 
 ## Heroku Configuration
 
@@ -55,4 +55,4 @@ heroku config:set NPM_CONFIG_PRODUCTION=false YARN_PRODUCTION=false NODE_MODULES
 
 ## License
 
-[RTCMultiConnection](https://github.com/muaz-khan/RTCMultiConnection) is released under [MIT licence](https://github.com/muaz-khan/RTCMultiConnection/blob/master/LICENSE.md) . Copyright (c) [Muaz Khan](https://MuazKhan.com/).
+[ReactLiveStream](https://github.com/venkatesh-m-xelp/react-live-stream) is released under [MIT licence](https://github.com/venkatesh-m-xelp/react-live-stream/blob/master/LICENSE.md) . Copyright (c) [Muaz Khan](https://MuazKhan.com/).
