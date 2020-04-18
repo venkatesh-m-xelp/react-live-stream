@@ -1,16 +1,18 @@
-## Demos
+## Live Demo
 
 * https://react-live-stream.herokuapp.com/
 
+## Installation Process
 
 ```sh
-mkdir demo && cd demo
+# clone the project
+git clone https://github.com/venkatesh-m-xelp/react-live-stream.git
 
-# install from NPM
+# install from NPM (For Windows)
 npm install -g rtcmulticonnection
 
-# or clone from github
-git clone https://github.com/venkatesh-m-xelp/react-live-stream.git
+# install from NPM (For Linux)
+sudo npm install -g rtcmulticonnection
 
 # install all required packages
 # you can optionally include --save-dev
