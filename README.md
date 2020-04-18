@@ -14,7 +14,7 @@ Signaling server has a separate repository:
 
 ## Demos
 
-* https://rtcmulticonnection.herokuapp.com/
+* https://react-live-stream.herokuapp.com/
 
 ## Getting Started Without Any Installation
 
