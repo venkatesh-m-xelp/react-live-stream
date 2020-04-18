@@ -158,8 +158,8 @@ app.get('*', middleware.ensureLoggedIn(), (req, res) => {
 // });
 
 // const ports = process.env.PORT || 3333;
-app.listen(ports, (req,res) => {
-  console.log(`App listening on ${ports}!`);
+app.listen(port, (req,res) => {
+  console.log(`App listening on ${port}!`);
 });
 node_media_server.run();
 thumbnail_generator.start();
