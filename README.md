@@ -20,6 +20,38 @@ npm install
 
 node server --port=9001
 ```
+Now open `http://localhost:9001/`.
+
+## Heroku Configuration
+
+If you are installing on heroku, please make sure to enable following config variables:
+
+1. `NODE_MODULES_CACHE:false`
+2. `NPM_CONFIG_PRODUCTION:false`
+3. `YARN_PRODUCTION:false`
+
+You can set above variables through heroku CLI as well:
+
+```sh
+heroku config:set NPM_CONFIG_PRODUCTION=false YARN_PRODUCTION=false NODE_MODULES_CACHE=false
+```
+
+# Modify config.json
+
+```json
+{
+  "socketURL": "/",
+  "socketMessageEvent": "abcdef",
+  "socketCustomEvent": "ghijkl",
+  "port": "443",
+  "enableLogs": "false",
+  "autoRebootServerOnFailure": "false",
+  "isUseHTTPs": "true",
+  "ssl_key": "/ssl/certificate.key",
+  "ssl_cert": "/ssl/certificate.crt",
+  "ssl_cabundle": "/ssl/certificate.cabundle"
+}
+```
 
 ## License
 
